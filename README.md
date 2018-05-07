@@ -221,7 +221,7 @@ cEmissions <- NEI[(NEI$SCC %in% coalData$SCC), ]
 cEmTotalsAgg <- aggregate(Emissions ~ year, cEmissions, sum)
 ```
 
-Note:  The SCC levels go from generic to specific. We assume that coal combustion related SCC records are those where SCC.Level.One contains the substring 'comb' and SCC.Level.Four contains the substring 'coal'.
+Note:  The SCC levels go from generic to specific. We assume that coal combustion related SCC records are those where SCC.Short.Name contains the substring 'Coal'.
 
 
 ```r
