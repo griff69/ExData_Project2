@@ -76,7 +76,8 @@ SCC <- readRDS("Source_Classification_Code.rds")
 
 You must address the following questions and tasks in your exploratory analysis. For each question/task you will need to make a single plot. Unless specified, you can use any plotting system in R to make your plot.
 
-### Question 1
+### Question 1: Have total emissions from PM2.5 decreased in the United States from 1999 to 2008?
+
 
 First we'll aggregate the total PM2.5 emission from all sources for each of the years 1999, 2002, 2005, and 2008.
 
@@ -110,7 +111,7 @@ dev.off()
 Yes. The Total emissions have decreased in the US from 1999 to 2008.
 
 
-### Question 2
+### Question 2: Have total emissions from PM2.5 decreased in the Baltimore City, Maryland (fips == "24510") from 1999 to 2008?
 
 First we aggregate total emissions from PM2.5 for Baltimore City, Maryland (fips="24510") from 1999 to 2008.
 
@@ -147,7 +148,7 @@ dev.off()
 Yes. The total PM2.5 Emissions have decreased in the City of Baltimore Marylandover the periond from 1999 to 2008.
 
 
-### Question 3
+### Question 3: Of the four types of sources indicated by the type (point, nonpoint, onroad, nonroad) variable, which of these four sources have seen decreases in emissions from 1999–2008 for Baltimore City? Which have seen increases in emissions from 1999–2008?
 
 Using the ggplot2 plotting system,
 
@@ -197,7 +198,7 @@ The `point` source saw a increase for the same period of 1999 to 2008.
 
 
 
-### Question 4
+### Question 4: Across the United States, how have emissions from coal combustion-related sources changed from 1999–2008? 
 
 First we subset coal combustion source factors NEI data.
 
@@ -249,7 +250,7 @@ dev.off()
 Emissions from coal combustion labeled source types have drastically decreased from 1999 to 2008.
 
 
-### Question 5
+### Question 5: How have emissions from motor vehicle sources changed from 1999–2008 in Baltimore City?
 
 First we subset the motor vehicles, which we assume is anything like Motor Vehicle in SCC.Level.Two.
 
@@ -307,7 +308,7 @@ dev.off()
 The total emissions from  all motor vehicle related sources have dropped in Baltimore from 1999 to 2008 
 
 
-### Question 6
+### Question 6: Which city has seen greater changes over time in motor vehicle emissions?
 
 Comparing emissions from motor vehicle sources in Baltimore City (fips == "24510") with emissions from motor vehicle sources in Los Angeles County, California (fips == "06037"),
 
