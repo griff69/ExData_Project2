@@ -103,7 +103,7 @@ barplot(
 dev.off()
 ```
 
-![plot of chunk plot1](figure/plot1.png) 
+![plot of chunk plot1](figures/plot1.png) 
 
 **Have total emissions from PM2.5 decreased in the United States from 1999 to 2008?**
 
@@ -140,7 +140,7 @@ barplot(em_balt_data, col = 'light gray',
 dev.off()
 ```
 
-![plot of chunk plot2](figure/plot2.png) 
+![plot of chunk plot2](figures/plot2.png) 
 
 **Have total emissions from PM2.5 decreased in the Baltimore City, Maryland (fips == "24510") from 1999 to 2008?**
 
@@ -185,7 +185,7 @@ print(g)
 dev.off()
 ```
 
-![plot of chunk plot3](figure/plot3.png) 
+![plot of chunk plot3](figures/plot3.png) 
 
 **Of the four types of sources indicated by the type (point, nonpoint, onroad, nonroad) variable, which of these four sources have seen decreases in emissions from 1999–2008 for Baltimore City?**
 
@@ -242,7 +242,7 @@ print(g)
 dev.off()
 ```
 
-![plot of chunk plot4](figure/plot4.png) 
+![plot of chunk plot4](figures/plot4.png) 
 
 **Across the United States, how have emissions from coal combustion-related sources changed from 1999–2008?**
 
@@ -300,7 +300,7 @@ print(g)
 dev.off()
 ```
 
-![plot of chunk plot5](figure/plot5.png) 
+![plot of chunk plot5](figures/plot5.png) 
 
 **How have emissions from motor vehicle sources changed from 1999–2008 in Baltimore City?**
 
@@ -356,7 +356,7 @@ print(g)
 dev.off())
 ```
 
-![plot of chunk plot6](figure/plot6.png) 
+![plot of chunk plot6](figures/plot6.png) 
 
 **Which city has seen greater changes over time in motor vehicle emissions?**
 
