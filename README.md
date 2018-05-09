@@ -1,7 +1,8 @@
 Exploratory Data Analysis - Course Project 2
 ============================================
 
-**NOTE: My work and answers to the questions are at the bottom of this document.**
+**Johns Hopkins University - Coursera **
+
 
 # Introduction
 
@@ -74,19 +75,20 @@ SCC <- readRDS("Source_Classification_Code.rds")
 
 ## Questions and Answers
 
-You must address the following questions and tasks in your exploratory analysis. For each question/task you will need to make a single plot. Unless specified, you can use any plotting system in R to make your plot.
+The following questions and tasks are addressed in my exploratory analysis. For each question/task I have made a single plot. Various plotting system in R were used to make these plots including Base and ggplot2.
+
 
 ### Question 1: Have total emissions from PM2.5 decreased in the United States from 1999 to 2008?
 
 
-First we'll aggregate the total PM2.5 emission from all sources for each of the years 1999, 2002, 2005, and 2008.
+First step is to aggregate the total PM2.5 emission from all sources for each of the years 1999, 2002, 2005, and 2008.
 
 
 ```r
 ebyr <- aggregate(Emissions~year,NEI,sum)
 ```
 
-Using the base plotting system, now we plot the total PM2.5 Emission from all sources,
+Using the base plotting system, I now plot the total PM2.5 Emission from all sources,
 
 
 ```r
@@ -111,9 +113,11 @@ dev.off()
 Yes. The Total emissions have decreased in the US from 1999 to 2008.
 
 
-### Question 2: Have total emissions from PM2.5 decreased in the Baltimore City, Maryland (fips == "24510") from 1999 to 2008?
 
-First we aggregate total emissions from PM2.5 for Baltimore City, Maryland (fips="24510") from 1999 to 2008.
+### Question 2: Have total emissions from PM2.5 decreased in the Baltimore, Maryland from 1999 to 2008?
+
+
+First I aggregate the total emissions from PM2.5 for Baltimore, Maryland (fips="24510") from 1999 to 2008.
 
 
 ```r
@@ -125,7 +129,7 @@ em_balt_data <- tapply(baltimore_data$Emissions,baltimore_data$year,sum)
 
 ```
 
-Now we use the base plotting system to make a plot of this data,
+Now I will use the base plotting system to make a plot of this data,
 
 
 ```r
@@ -145,12 +149,12 @@ dev.off()
 
 **Have total emissions from PM2.5 decreased in the Baltimore City, Maryland (fips == "24510") from 1999 to 2008?**
 
-Yes. The total PM2.5 Emissions have decreased in the City of Baltimore Marylandover the periond from 1999 to 2008.
+Yes. The total PM2.5 Emissions have decreased in the City of Baltimore Maryland over the periond from 1999 to 2008.
 
 
-### Question 3: Of the four types of sources indicated by the type (point, nonpoint, onroad, nonroad) variable, which of these four sources have seen decreases in emissions from 1999–2008 for Baltimore City? Which have seen increases in emissions from 1999–2008?
+### Question 3: Of the four available sources indicated by the type (point, nonpoint, onroad, nonroad) variables, which of these four sources have seen decreases in emissions from 1999–2008 for Baltimore ?  Which have seen increases in emissions over the same period of time ?
 
-Using the ggplot2 plotting system,
+This time we will Use the ggplot2 plotting system,
 
 
 ```r
@@ -188,19 +192,19 @@ dev.off()
 
 ![plot of chunk plot3](figures/plot3.png) 
 
-**Of the four types of sources indicated by the type (point, nonpoint, onroad, nonroad) variable, which of these four sources have seen decreases in emissions from 1999–2008 for Baltimore City?**
+**Of the four types of sources have seen decreases in emissions from 1999–2008 for Baltimore City?**
 
-The `non-road`, `nonpoint`, `on-road` source all indicate a decreased  in emissions for the timaeframe of  1999 to 2008 in Baltimore.
+The `non-road`, `nonpoint`, `on-road` source all indicate a decreased  in emissions for the specified timaeframe in Baltimore.
 
-**Which have seen increases in emissions from 1999–2008?**
+**Which have seen increases in emissions over the same period?**
 
-The `point` source saw a increase for the same period of 1999 to 2008.  
+The `point` source saw an increase for the same period between 1999 to 2008.  
 
 
 
 ### Question 4: Across the United States, how have emissions from coal combustion-related sources changed from 1999–2008? 
 
-First we subset coal combustion source factors NEI data.
+First I subset coal combustion source factors in the NEI data.
 
 
 ```r
@@ -222,7 +226,7 @@ cEmissions <- NEI[(NEI$SCC %in% coalData$SCC), ]
 cEmTotalsAgg <- aggregate(Emissions ~ year, cEmissions, sum)
 ```
 
-Note:  The SCC levels go from generic to specific. We assume that coal combustion related SCC records are those where SCC.Short.Name contains the substring 'Coal'.
+Note:  The SCC levels go from generic to specific. I will assume that coal combustion related SCC records are only those where the SCC.Short.Name contains the substring 'Coal'.
 
 
 ```r
@@ -245,6 +249,7 @@ dev.off()
 
 ![plot of chunk plot4](figures/plot4.png) 
 
+
 **Across the United States, how have emissions from coal combustion-related sources changed from 1999–2008?**
 
 Emissions from coal combustion labeled source types have drastically decreased from 1999 to 2008.
@@ -252,7 +257,7 @@ Emissions from coal combustion labeled source types have drastically decreased f
 
 ### Question 5: How have emissions from motor vehicle sources changed from 1999–2008 in Baltimore City?
 
-First we subset the motor vehicles, which we assume is anything like Motor Vehicle in SCC.Level.Two.
+First I subset the motor vehicles, which I have identified as anything with "Vehicle" (no case-sensitivity) in SCC.EI.Sector.
 
 
 ```r
@@ -272,7 +277,7 @@ vehicleData <- SCC[vbool,]
 vEmissions <- NEI[(NEI$SCC %in% vehicleData$SCC), ]
 ```
 
-Next we subset for motor vehicles in Baltimore,
+Next I subset again for motor vehicles in Baltimore usingi the fips 24510,
 
 
 ```r
@@ -283,7 +288,7 @@ BMIvehEm <- subset(vEmissions, fips == "24510")
 vEmTotalsAgg    <- aggregate(Emissions ~ year, BMIvehEm, sum) 
 ```
 
-Finally we plot using ggplot2,
+Finally I plot the aggrgate of emmisisons by year using ggplot2 on the refined subset,
 
 
 ```r
@@ -308,7 +313,7 @@ dev.off()
 The total emissions from  all motor vehicle related sources have dropped in Baltimore from 1999 to 2008 
 
 
-### Question 6: Which city has seen greater changes over time in motor vehicle emissions?
+### Question 6: Which city, Baltimore, or Low Angeles has seen a greater change over the poeriod 1999 to 2008 in motor vehicle emissions?
 
 Comparing emissions from motor vehicle sources in Baltimore City (fips == "24510") with emissions from motor vehicle sources in Los Angeles County, California (fips == "06037"),
 
@@ -336,7 +341,7 @@ LAXBMIvehEm <- NEI %>%
     summarise(emissions = sum(Emissions))
 ```
 
-Now we plot using the ggplot2 system,
+Now I plot the dyply library filtered and grouped aggregate  using the ggplot2 system,
 
 
 ```r
