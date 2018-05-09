@@ -1,7 +1,8 @@
 Exploratory Data Analysis - Course Project 2
 ============================================
 
-**Johns Hopkins University - Coursera **
+
+**Johns Hopkins University - Coursera.**
 
 
 # Introduction
